@@ -139,10 +139,11 @@ function assocInM(obj, keys, value) {
     , key
 
   for (var i = 0, len = keys.length; i < (len - 1); i++) {
+    if (keys[i] !== '__proto__' && keys[i] !== 'constructor' && keys[i] !== 'prototype') {
     key = keys[i]
     obj = obj[key] || (obj[key] = {})
   }
-
+  }
   key = keys[i]
   obj[key] = value
 
